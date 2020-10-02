@@ -1,0 +1,20 @@
+.login-form {
+  width: 100vw;
+  height: 100vh;
+  background: #4c934c;
+}
+
+.login-form form {
+  background: white;
+
+  width: 30%;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.login-form form button {
+  background-color: #19381f;
+}

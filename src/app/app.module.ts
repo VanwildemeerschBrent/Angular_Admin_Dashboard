@@ -9,20 +9,27 @@ import { HeaderComponent } from './structure/header/header.component';
 import { FooterComponent } from './structure/footer/footer.component';
 import { NavComponent } from './structure/nav/nav.component';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     LoginComponent,
     RegistrationComponent,
     HeaderComponent,
     FooterComponent,
     NavComponent,
-      HomeComponent
-   ],
+    HomeComponent
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

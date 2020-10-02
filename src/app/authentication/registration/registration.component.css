@@ -1,0 +1,20 @@
+.registration-form {
+  width: 100vw;
+  height: 100vh;
+  background: #4c934c;
+}
+
+.registration-form form {
+  background: white;
+
+  width: 30%;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.registration-form form button {
+  background-color: #19381f;
+}

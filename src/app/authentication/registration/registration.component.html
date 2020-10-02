@@ -1,3 +1,62 @@
-<p>
-  registration works!
-</p>
+<div class="registration-form">
+  <form class="p-5" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+    <h3 class="text-center">Registration</h3>
+    <div
+      class="alert alert-danger"
+      *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+    >
+      <div *ngIf="userName.errors.required">Name is required</div>
+    </div>
+    <div class="form-group">
+      <label for="user-name">Name</label>
+      <input
+        type="name"
+        class="form-control"
+        id="user-name"
+        aria-describedby="name"
+        placeholder="Enter name"
+        formControlName="userName"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="Enter email"
+        formControlName="userEmail"
+        required
+      />
+      <small id="emailHelp" class="form-text text-dark"
+        >We'll never share your email with anyone else.</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="password">Password (Min. 6 characters)</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        formControlName="userPassword"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirm-password"
+        placeholder="Confirm Password"
+        formControlName="userConfirmedPassword"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn text-white w-100 mt-3">Register</button>
+  </form>
+</div>
