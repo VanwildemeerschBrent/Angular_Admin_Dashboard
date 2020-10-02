@@ -10,6 +10,8 @@ export class AuthenticationService {
     private readonly REFRESH_TOKEN: string = 'REFRESH_TOKEN';
     private loggedUser: string;
 
+    private URL: string = 'http://localhost:3000';
+
     constructor(private http: HttpClient) { }
 
     login(user: { userName: string, password: string }): Observable<boolean> {
@@ -17,7 +19,7 @@ export class AuthenticationService {
     }
 
     register(user: User): Observable<User> {
-        return this.http.post<User>(`http://loocalhost:3000/register`, user);
+        return this.http.post<User>(`${this.URL}/auth/register`, user);
     }
 
     isLoggedIn(): any {
