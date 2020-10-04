@@ -16,6 +16,8 @@ export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
 
   isSubmitted: boolean = false;
+  isUserRegistered: boolean = false;
+  isUserAlreadyRegistered: boolean = false;
 
   constructor(private router: Router, private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
 
@@ -43,7 +45,17 @@ export class RegistrationComponent implements OnInit {
       user.name = this.registrationForm.get('userName').value;
       user.email = this.registrationForm.get('userEmail').value;
       user.password = this.registrationForm.get('userPassword').value;
-      this.authenticationService.register(user).subscribe(res => console.log('Response', res))
+      this.authenticationService.register(user).subscribe(res => {
+        console.log('Res:', res);
+        this.registrationForm.reset();
+        this.isUserRegistered = true;
+        this.isSubmitted = false;
+      }, (error) => {
+        if (error.status === 400) {
+          this.isUserAlreadyRegistered = true;
+          this.isSubmitted = false;
+        }
+      });
     }
   }
 }

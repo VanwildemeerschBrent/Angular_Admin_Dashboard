@@ -15,6 +15,6 @@
   left: 50%;
 }
 
-.registration-form form button {
+.registration-form form .btn-register {
   background-color: #19381f;
 }

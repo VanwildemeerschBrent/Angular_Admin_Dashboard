@@ -15,6 +15,6 @@
   left: 50%;
 }
 
-.login-form form button {
+.login-form form .btn-login {
   background-color: #19381f;
 }
