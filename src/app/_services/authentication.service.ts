@@ -15,7 +15,7 @@ export class AuthenticationService {
     constructor(private http: HttpClient) { }
 
     login(user: { userName: string, password: string }): Observable<boolean> {
-        return this.http.post<any>(`http://localhost:3000/login`, user)
+        return this.http.post<any>(`http://localhost:3000/login`, user);
     }
 
     register(user: User): Observable<User> {

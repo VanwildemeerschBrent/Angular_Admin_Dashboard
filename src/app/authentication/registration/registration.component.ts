@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 import { User } from 'src/app/_models/user.model';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 
@@ -19,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   isUserRegistered: boolean = false;
   isUserAlreadyRegistered: boolean = false;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
+  constructor(private formBuilder: FormBuilder, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({

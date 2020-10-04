@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/_models/user.model';
+import { AuthenticationService } from 'src/app/_services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private) { }
+  loginForm: FormGroup;
+  isSubmitted: boolean = false;
+  constructor(private authenticationService: AuthenticationService, private formBuilder: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      userEmail: new FormControl('', [Validators.required, Validators.email]),
+      userPassword: new FormControl('', [Validators.required])
+    });
+  }
+
+  get userEmail(): AbstractControl { return this.loginForm.get('userEmail'); }
+  get userPassword(): AbstractControl { return this.loginForm.get('userPassword'); }
+
+  onLogin(): void {
+    this.isSubmitted = true;
+    if (this.loginForm.valid) {
+      const credentials = {
+        userName: this.loginForm.get('userEmail').value,
+        password: this.loginForm.get('userPassword').value
+      }
+      this.authenticationService.login(credentials)
+        .subscribe((res) => console.log('Response: ', res), (error) => console.error('Error:', error))
+    }
   }
 
 }
