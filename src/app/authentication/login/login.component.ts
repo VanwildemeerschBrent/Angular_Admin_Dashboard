@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isSubmitted: boolean = false;
+  errorLoggingIn: boolean = false;
+  errorLoggingInMessage: string;
+
   constructor(private authenticationService: AuthenticationService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
@@ -33,7 +36,7 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get('userPassword').value
       }
       this.authenticationService.login(credentials)
-        .subscribe((res) => this.router.navigateByUrl('/'), (error) => console.error('Error:', error))
+        .subscribe((res) => this.router.navigateByUrl('/'), (error) => { this.errorLoggingIn = true; this.errorLoggingInMessage = error.error })
     }
   }
 
