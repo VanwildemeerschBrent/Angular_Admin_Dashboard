@@ -13,11 +13,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickGetCrypto(): void {
-    this.cryptoService.getAllCurrencies().subscribe((res) => {
-      console.log('Currencies', res);
-      debugger;
-    })
+  onClickGetCurrencies(): void {
+    // this.cryptoService.getAllCurrencies().subscribe((res) => {
+
+    // })
   }
 
 }

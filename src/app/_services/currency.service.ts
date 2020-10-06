@@ -8,6 +8,7 @@ import { Currencies } from '../_models/currencies';
 })
 export class CurrencyService {
   private API_URL = 'http://localhost:3000';
+  private CURRENCY_API = ""
 
   constructor(private http: HttpClient) { }
 
@@ -15,6 +16,6 @@ export class CurrencyService {
     return this.http.get<Currencies>(`${this.API_URL}/currency/${currencyId}`);
   }
   getAllCurrencies(): Observable<object[]> {
-    return this.http.get<object[]>(`${this.API_URL}/currency/all`);
+    return this.http.get<object[]>(`https://api.coindesk.com/v1/bpi/supported-currencies.json`);
   }
 }
