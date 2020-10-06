@@ -1,3 +1,21 @@
-<p>
-  currencies works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4 pl-0 overflow-auto">
+      <ul class="list-group">
+        <button
+          class="list-group-item btn btn-outline-dark"
+          *ngFor="let currency of currencies"
+          (click)="onClickCurrency(currency)"
+        >
+          {{ currency.country }}
+        </button>
+      </ul>
+    </div>
+    <div class="col-8">
+      <p>Currency API Detail:</p>
+      <pre>
+        {{ currencyDetail | json }}
+      </pre>
+    </div>
+  </div>
+</div>

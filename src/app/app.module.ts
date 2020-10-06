@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './_services/tokenInterceptor.service';
+import { CommonModule } from '@angular/common';
+import { BooksComponent } from './_components/books/books.component';
+import { CurrenciesComponent } from './_components/currencies/currencies.component';
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import { TokenInterceptorService } from './_services/tokenInterceptor.service';
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    BooksComponent,
+    CurrenciesComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,7 @@ import { TokenInterceptorService } from './_services/tokenInterceptor.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule
 
   ],
   providers: [

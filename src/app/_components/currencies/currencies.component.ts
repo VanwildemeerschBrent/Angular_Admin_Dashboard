@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Currencies } from 'src/app/_models/currencies';
+import { CurrencyDetail } from 'src/app/_models/currencyDetail.model';
+import { CurrencyService } from 'src/app/_services/currency.service';
 
 @Component({
   selector: 'app-currencies',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrenciesComponent implements OnInit {
 
-  constructor() { }
+  currencies: Currencies[];
+  currencyDetail: CurrencyDetail;
+  constructor(private currencyService: CurrencyService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.currencyService.getAllCurrencies().subscribe((currencies) => {
+      this.currencies = currencies.sort((a, b) => (a.country < a.country) ? -1 : (a.country > b.country) ? 1 : 0);
+    });
+  }
+
+  onClickCurrency(currency: Currencies): void {
+    this.currencyService.getCurrencyData(currency.currency).subscribe((currencyDetail) => {
+      this.currencyDetail = currencyDetail;
+    });
   }
 
 }

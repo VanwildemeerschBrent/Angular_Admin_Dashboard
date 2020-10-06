@@ -1,5 +1,4 @@
 export class Currencies {
-    time: object;
-    disclaimer: string;
-    bpi: object;
+    currency: string;
+    country: string;
 }
