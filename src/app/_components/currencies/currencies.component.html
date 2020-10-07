@@ -21,17 +21,49 @@
       </ul>
     </div>
     <div class="col-8 px-0">
-      <div class="container-fluid px-0" *ngIf="currencyDetail">
+      <div class="container-fluid px-5" *ngIf="currencyDetail">
         <div class="row">
-          <div class="col-11 m-auto">
+          <div class="col-12 m-auto">
             <h3 class="py-3">{{ selectedCurrency.country }}</h3>
+          </div>
+          <div class="col-3">
             <div class="card mt-2">
               <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">
-                  {{ selectedCurrency.country }}
+                <h5 class="card-title">Currency UID</h5>
+                <p class="card-text text-center">
+                  <span class="display-3 text-success">{{
+                    selectedCurrency.currency
+                  }}</span>
                 </p>
-                <pre>{{ currencyDetail | json }}</pre>
+              </div>
+            </div>
+          </div>
+          <div class="col-9">
+            <div class="card mt-2">
+              <div class="card-body">
+                <h5 class="card-title">
+                  Crypto vs Currency
+                  <span class="float-right small">{{
+                    currencyDetail.time.updated | date: "dd/MM/yy hh:mm:ss"
+                  }}</span>
+                </h5>
+                <p class="card-text text-center" *ngIf="currencyDetail">
+                  <span class="display-3 text-success">
+                    1 BTC :
+                    {{ currencyDetail.bpi[selectedCurrency.currency].rate }}
+                    {{ selectedCurrency.currency }}</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card mt-2">
+              <div class="card-body">
+                <h5 class="card-title">Disclaimer</h5>
+                <p class="card-text text-center" *ngIf="currencyDetail">
+                  <span>{{ currencyDetail.disclaimer }}</span>
+                </p>
               </div>
             </div>
           </div>

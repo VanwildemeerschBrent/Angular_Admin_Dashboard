@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './_components/authentication/login/login.component';
 import { RegistrationComponent } from './_components/authentication/registration/registration.component';
-import { BooksComponent } from './_components/books/books.component';
 import { CurrenciesComponent } from './_components/currencies/currencies.component';
 import { HomeComponent } from './_components/home/home.component';
+import { MoviesComponent } from './_components/movies/movies.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
 
   {
     path: '', component: HomeComponent, children: [
-      { path: 'books', component: BooksComponent, },
+      { path: 'movies', component: MoviesComponent, },
       { path: 'currencies', component: CurrenciesComponent, },
     ]
   }

@@ -15,8 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './_services/tokenInterceptor.service';
 import { CommonModule } from '@angular/common';
-import { BooksComponent } from './_components/books/books.component';
 import { CurrenciesComponent } from './_components/currencies/currencies.component';
+import { MoviesComponent } from './_components/movies/movies.component';
 
 
 @NgModule({
@@ -28,8 +28,8 @@ import { CurrenciesComponent } from './_components/currencies/currencies.compone
     FooterComponent,
     NavComponent,
     HomeComponent,
-    BooksComponent,
-    CurrenciesComponent
+    CurrenciesComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,

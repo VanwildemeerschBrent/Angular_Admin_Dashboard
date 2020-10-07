@@ -24,6 +24,7 @@ export class CurrenciesComponent implements OnInit {
   }
 
   onClickCurrency(currency: Currencies): void {
+    this.currencyDetail = null;
     this.selectedCurrency = currency;
     this.currencyService.getCurrencyData(currency.currency).subscribe((currencyDetail) => {
       this.currencyDetail = currencyDetail;
